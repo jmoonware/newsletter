@@ -2,7 +2,7 @@
 # newsletter.py
 # 	Holiday newsletter generator
 # 	Copyright (c) 2015 by John A. Moon
-#	This code is provided "as is", without warrant of any kind
+#	This code is provided "as is", without warranty of any kind
 # 	Usage tip: Holiday drinks may make the output more sensible
 # 
 import random
