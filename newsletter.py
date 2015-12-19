@@ -15,8 +15,17 @@ import PithyPhrases
 import GrammarElements
 import TransitionPhrases
 
-def getRandom(items):
-	return(items[random.randint(0,len(items)-1)])
+# gets a random item in a list
+# if unique is True, then it deletes the element from the list
+def getRandom(items,unique):
+	if len(items)>0:
+		listIndex=random.randint(0,len(items)-1)
+		returnItem = items[listIndex]
+		if unique==True:
+			del items[listIndex]
+	else:
+		returnItem="something"
+	return(returnItem)
 
 def addArticle(noun):
 		if noun[0] in ['a','e','i','o','u','A','E','I','O','U']:
@@ -27,60 +36,60 @@ def addArticle(noun):
 months=['January','March','June','August','October']
 
 line=[]
-line.append(getRandom(TransitionPhrases.greetings))
+line.append(getRandom(TransitionPhrases.greetings,True))
 line.append('\n\n')
 line.append('This year, we')  
-line.append(getRandom(GrammarElements.verbs))
-line.append(getRandom(GrammarElements.adverbs))
-line.append(getRandom(GrammarElements.prepositions))
-line.append(getRandom(GrammarElements.propernouns))
-line.append(getRandom(GrammarElements.timeprepositions))
-line.append(getRandom(months)+'.')
+line.append(getRandom(GrammarElements.verbs,True))
+line.append(getRandom(GrammarElements.adverbs,True))
+line.append(getRandom(GrammarElements.prepositions,True))
+line.append(getRandom(GrammarElements.propernouns,True))
+line.append(getRandom(GrammarElements.timeprepositions,True))
+line.append(getRandom(months,True)+'.')
 line.append('That really made us pause.')
-line.append(getRandom(PithyPhrases.data))
+line.append(getRandom(PithyPhrases.data,True))
 line.append('\n\n')
 
-line.append(getRandom(GrammarElements.timeprepositions).capitalize())
-line.append(getRandom(months)+',')
+line.append(getRandom(GrammarElements.timeprepositions,True).capitalize())
+line.append(getRandom(months,True)+',')
 line.append('we')
-line.append(getRandom(GrammarElements.verbs))
-line.append(getRandom(GrammarElements.adverbs))
-line.append(getRandom(GrammarElements.placeprepositions))
-line.append(getRandom(GrammarElements.places)+'.')
-line.append(getRandom(PithyPhrases.data))
+line.append(getRandom(GrammarElements.verbs,True))
+line.append(getRandom(GrammarElements.adverbs,True))
+line.append(getRandom(GrammarElements.placeprepositions,False))
+line.append(getRandom(GrammarElements.places,True)+'.')
+line.append(getRandom(PithyPhrases.data,True))
 line.append('\n\n')
 
 line.append('We also have some great news!')
-line.append(getRandom(GrammarElements.names))
-line.append(getRandom(GrammarElements.verbs))
-line.append(addArticle(getRandom(GrammarElements.nouns)))
-line.append(getRandom(GrammarElements.prepositions))
-line.append(getRandom(GrammarElements.propernouns))
-line.append(getRandom(GrammarElements.placeprepositions))
-line.append(getRandom(GrammarElements.places))
-line.append(getRandom(GrammarElements.timeprepositions))
-line.append(getRandom(months)+'!')
-line.append(getRandom(PithyPhrases.data))
-line.append(getRandom(GrammarElements.names))
+line.append(getRandom(GrammarElements.names,True))
+line.append(getRandom(GrammarElements.verbs,True))
+line.append(addArticle(getRandom(GrammarElements.nouns,True)))
+line.append(getRandom(GrammarElements.prepositions,False))
+line.append(getRandom(GrammarElements.propernouns,True))
+line.append(getRandom(GrammarElements.placeprepositions,False))
+line.append(getRandom(GrammarElements.places,True))
+line.append(getRandom(GrammarElements.timeprepositions,False))
+line.append(getRandom(months,False)+'!')
+line.append(getRandom(PithyPhrases.data,True))
+line.append(getRandom(GrammarElements.names,True))
 line.append('was so jealous!')
 line.append('\n\n')
 
 line.append('This year we were also fortunate that the')
-line.append(getRandom(GrammarElements.adjectives))
-line.append(getRandom(GrammarElements.nouns))
-line.append(getRandom(GrammarElements.verbs))
-line.append(getRandom(GrammarElements.adverbs))
-line.append(getRandom(GrammarElements.prepositions))
-line.append(getRandom(GrammarElements.propernouns)+'.')
-line.append(getRandom(PithyPhrases.data))
+line.append(getRandom(GrammarElements.adjectives,True))
+line.append(getRandom(GrammarElements.nouns,True))
+line.append(getRandom(GrammarElements.verbs,True))
+line.append(getRandom(GrammarElements.adverbs,True))
+line.append(getRandom(GrammarElements.prepositions,False))
+line.append(getRandom(GrammarElements.propernouns,True)+'.')
+line.append(getRandom(PithyPhrases.data,True))
 line.append('\n\n')
 
-line.append(getRandom(TransitionPhrases.wrapups))
-line.append(getRandom(PithyPhrases.data))
-line.append(getRandom(TransitionPhrases.wrapups))
+line.append(getRandom(TransitionPhrases.wrapups,True))
+line.append(getRandom(PithyPhrases.data,True))
+line.append(getRandom(TransitionPhrases.wrapups,True))
 line.append('\n\n')
 
-line.append(getRandom(TransitionPhrases.goodbyes))
+line.append(getRandom(TransitionPhrases.goodbyes,True))
 line.append('\n\n')
 
 with open('newsletter'+str(time.time())+'.txt','w+') as newsFile:
